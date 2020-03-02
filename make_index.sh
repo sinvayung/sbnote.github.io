@@ -12,7 +12,7 @@ function read_dir() {
 			extension="${file##*.}"
 			filename="${file%.*}"
 			if [ $extension = "md" -a $filename != "index" ];then 
-				echo "##### "$filename
+				echo "- ["$filename"]("$1"/"$filename")"
 			fi
 		fi
 	done
