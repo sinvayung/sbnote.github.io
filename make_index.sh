@@ -5,14 +5,15 @@ function read_dir() {
 	do
 		if [ -d $1"/"$file ];then
 			if [ "${file##*.}" != "." ];then
-				echo "### "$file
+				echo -e ""
+				echo -e "### "$file
 			fi
 			read_dir $1"/"$file
 		else
 			extension="${file##*.}"
 			filename="${file%.*}"
 			if [ $extension = "md" -a $filename != "index" ];then 
-				echo "- ["$filename"]("$1"/"$filename")"
+				echo -e "- ["$filename"]("$1"/"$filename")"
 			fi
 		fi
 	done
