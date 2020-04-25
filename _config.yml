@@ -29,9 +29,9 @@ baseurl: "/docsy-jekyll" # the subpath of your site, e.g. /blog
 url: "http://page.sbnote.com" # the base hostname & protocol for your site
 
 # Social (First three Required)
-repo: "https://github.com/vsoch/docsy-jekyll"
-github_user: "vsoch"
-github_repo: "docsy-jekyll"
+repo: "https://github.com/sbnote/sbnote.github.io"
+github_user: "sbnote"
+github_repo: "sbnote.github.io"
 
 # Optional
 twitter: vsoch
