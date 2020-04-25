@@ -1,47 +1,52 @@
 - title: Documentation
   url: docs
   links:
-    - title: "Getting Started"
+    - title: "终端技术"
       url: "docs/getting-started"
       children:
-        - title: Features
-          url: "docs/getting-started#getting-started"
-        - title: Development
-          url: "docs/getting-started#development"
-        - title: Customization
-          url: "docs/getting-started#customization"
-    - title: "Extras"
-      url: "docs/extras"
-      children:
-        - title: Quizzes
-          url: "docs/extras/example-quiz"
-        - title: Tags Page
-          url: "tags"
-    - title: "About"
-      url: "about"
-    - title: "News"
-      url: "news"
-      
-- title: Documentation
-  url: docs
-  links:
-    - title: "Getting Started"
+        - title: Android
+          url: "docs/android"
+        - title: Flutter
+          url: "docs/flutter"
+        - title: MiniProgram
+          url: "docs/miniprogram"
+        - title: Vue
+          url: "docs/vue"     
+    - title: "系统技术"
       url: "docs/getting-started"
       children:
-        - title: Features
-          url: "docs/getting-started#getting-started"
-        - title: Development
-          url: "docs/getting-started#development"
+        - title: Linux
+          url: "docs/linux"
+        - title: Shell
+          url: "docs/shell"
         - title: Customization
-          url: "docs/getting-started#customization"
-    - title: "Extras"
-      url: "docs/extras"
+          url: "docs/getting-started#customization"          
+    - title: "数据科学"
+      url: "docs/getting-started"
       children:
-        - title: Quizzes
-          url: "docs/extras/example-quiz"
-        - title: Tags Page
-          url: "tags"
-    - title: "About"
-      url: "about"
-    - title: "News"
-      url: "news"
+        - title: Numpy
+          url: "docs/numpy"
+        - title: Pandas
+          url: "docs/pandas"
+        - title: Tensorflow
+          url: "docs/tensorflow"      
+    - title: "语言基础"
+      url: "docs/getting-started"
+      children:
+        - title: Java
+          url: "docs/java"
+        - title: Python
+          url: "docs/python"
+        - title: C/C++
+          url: "docs/ccpp"     
+    - title: "工具使用"
+      url: "docs/getting-started"
+      children:
+        - title: Git
+          url: "docs/git"
+        - title: ElasticSearch
+          url: "docs/elasticsearch"
+        - title: ffmpeg
+          url: "docs/ffmpeg"    
+        - title: IDA
+          url: "docs/ida"                          
