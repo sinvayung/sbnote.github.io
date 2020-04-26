@@ -1,5 +1,5 @@
 ---
-```title: Getting Started
+title: Getting Started
 description: Getting started with Docsy Jekyll
 ---
 

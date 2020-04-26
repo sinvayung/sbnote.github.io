@@ -38,7 +38,9 @@
         - title: Python
           url: "docs/python"
         - title: C/C++
-          url: "docs/ccpp"     
+          url: "docs/ccpp"
+        - title: Hive
+          url: "docs/hive"     
     - title: "工具使用"
       url: "docs/getting-started"
       children:
