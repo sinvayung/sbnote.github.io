@@ -2,7 +2,7 @@
   url: docs
   links:
     - title: "终端技术"
-      url: "docs/getting-started"
+      url: "docs/android"
       children:
         - title: Android
           url: "docs/android"
