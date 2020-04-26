@@ -1,5 +1,8 @@
 ---
-title: Coming soon...
+title: "Coming soon..."
+tags: 
+ - 扩大舒适圈
+ - 坚持系统化
 description: Getting started with Docsy Jekyll
 ---
 
