@@ -2,10 +2,10 @@
   url: docs
   links:
     - title: "终端技术"
-      url: "docs/android"
+      url: "docs/test"
       children:
         - title: Android
-          url: "docs/android"
+          url: "docs/test"
         - title: Flutter
           url: "docs/flutter"
         - title: MiniProgram
