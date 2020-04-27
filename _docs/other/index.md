@@ -1,0 +1,141 @@
+## SBNOTE
+
+- **TO-READ**
+  - [Google机器学习速成课程](https://developers.google.com/machine-learning/crash-course)
+  - [莫烦python](https://morvanzhou.github.io)
+  - [100-Days-Of-ML-Code](https://github.com/MLEveryday/100-Days-Of-ML-Code)
+- **记忆力**
+  - [记忆力1](jiyili_1.html)
+  - [记忆力2](jiyili_2.html)
+- **育儿**
+  - [正面管教](yuer_zmgj_1.html)
+- **Linux系统编程**
+  - [Socket](linux_socket.html)  [大端小端](big_endian.html)  [粘包问题](linux_socket_packet.html)
+  - [Epoll](linux_epoll.html)
+  - [Ptrace](linux_ptrace.html)
+  - [Daemon](linux_daemon.html)
+- **Linux内核**
+  - [Kprobe](linux_kprobe.html)
+  - [task_struct](linux_task_struct.html)
+  - [syscall](linux_syscall.html)
+- **黑客技术**
+  - [ROP arm32](hacker_rop_arm32.html)  [gadgets](hacker_rop_gadgets.html)  [x86](hacker_rop_x86.html)  [x64](hacker_rop_x64.html)
+  - [漏洞缓解](hacker_mitigation.html)
+  - [应用劫持](hacker_yyjc.html)
+  - [ELF文件格式](hacker_elf.html)
+  - [应用安全之源码安全](hacker_ymaq.html)
+- **Python开发**
+
+  - [迭代器与生成器](python_inter_gen.html)
+  - [日期和时间](python_date.html)
+  - [codecs](python_codecs.html)
+  - [getopt](python_getopt.html)
+  - [socket-zmq](python_zmq.html)
+  - [可变参数](python_args.html)
+  - [自省+反射](python_reflect.html)
+  - [协程](python_asyncio.html)
+  - [官方: The Python Standard Library](https://docs.python.org/3/library/index.html)
+  - [官方: Python HOWTOs](https://docs.python.org/3/howto/index.html)
+- **正则表达式**
+
+  - [Example](zzbds_1.html)
+  - [元字符](zzbds_2.html)
+  - [语法](zzbds_3.html)
+- **Python爬虫**
+  - [Scrapy](python_scrapy_1.html)
+- **Python计算科学**
+
+  - [Numpy](http://www.sbnote.com:9999/notebooks/numpy_note.ipynb)
+  - [Pandas](http://www.sbnote.com:9999/notebooks/pandas_note.ipynb)
+  - [Sklearn](http://www.sbnote.com:9999/notebooks/sklearn_note.ipynb)
+- **数学**
+  - [标准差](shuxue_bzc.html)
+  - [机器学习时学习数学](shuxue_jqxx.html)
+- **机器学习**
+  - [Day 1_Data_Preprocessing.md.ipynb](http://www.sbnote.com:9999/notebooks/100-Days-Of-ML-Code/Day%201_Data_Preprocessing.md.ipynb)
+  - [Day 2_Simple_Linear_Regression.ipynb](http://www.sbnote.com:9999/notebooks/100-Days-Of-ML-Code/Day%202_Simple_Linear_Regression.ipynb)
+  - [Day 3_Multiple_Linear_Regression.ipynb](http://www.sbnote.com:9999/notebooks/100-Days-Of-ML-Code/Day%203_Multiple_Linear_Regression.ipynb)
+  - [Day 6_Logistic_Regression.md.ipynb](http://www.sbnote.com:9999/notebooks/100-Days-Of-ML-Code/Day%206_Logistic_Regression.md.ipynb)
+  - [Day 11_K-NN.ipynb](http://www.sbnote.com:9999/notebooks/100-Days-Of-ML-Code/Day%2011_K-NN.ipynb)
+  - 
+- **深度学习**
+
+  - [CNN](dl_cnn_1.html)
+- **大数据**
+  - [Hive-Sql](hive_sql.html)
+- **Android**
+  - [自定义View](android_view.html)  [文章2](android_view_2.html)
+  - [JNI](android_jni_1.html)  [实战篇](android_jni_2.html)  [android.mk](android_jni_mk.html)  [cmake](build_cmake.html)  [cmake](build_cmake_2.html)  [JNI系列](android_jni_3.html)  [JNI Tips](android_jni_tips.html)
+  - [AIDL](android_services_aidl.html)   [Bind Service](android_bound_services.html)
+  - [辅助点击](android_accessibility.html)
+  - [内存调试](android_mem.html)  性能优化
+  - [截屏](android_screencap.html)
+  - [栈顶](android_runningtask.html)
+  - [常驻](android_procpersist.html)
+- **Android+**
+  - [Binder](android_binder_4.html)  [驱动篇](android_binder_1.html)  [C++层](android_binder_2.html)  [Java层](android_binder_3.html)  [通信机制](android_binder_5.html)  [总结](android_binder_6.html)  [使用binder](android_binder_7.html)  [使用aidl](android_binder_8.html)
+  - [Selinux](android_selinux_1.html)  [2](android_selinux_2.html)  [access_vectors](https://android.googlesource.com/platform/external/sepolicy/+/jb-mr1-dev/access_vectors)
+  - [Hook](android_hook.html)
+  - [Android - 系统启动过程](android_launch.html)
+  - [安全增强](android_security.html)
+  - [NativeTrace](android_native_trace.html)
+- **逆向工程**
+  - [IDA](re_ida.html)  [笔记](re_ida_2.html)
+  - [Smali](android_smali.html)  [实例](android_smali_2.html)
+  - [ARM](re_arm.html)  [so逆向实例](re_arm_2.html)  [ARM指令集.pdf](assets/ARM指令集.pdf)  [常用ARM指令集及汇编.pdf](assets/常用ARM指令集及汇编.pdf)
+  - [GDB](re_gdb.html)
+- **LLVM**
+  - ...
+- **Linux Shell**
+  - [Shell](http://www.sbnote.com:9999/notebooks/shell_note.ipynb)
+  - [语法](shell_lang.html)
+  - [字符串操作](shell_string.html)
+  - [vi/vim](shell_vi.html)
+  - [Grep&Find](shell_grepfind.html)  [Grep](shell_grep.html)
+  - [cat+eof](shell_eof.html)
+  - [socat](shell_socat.html)
+  - [net-tool](shell_net.html)
+  - [常用命令](shell_shell.html)
+  - [linux开发环境](linux_devenv.html)
+- **读书笔记**
+  - [精益创业](dushu_jycy.html)
+  - [增长黑客](dushu_zzhk.html)
+  - [重新定义创业](dushu_cxdycy.html)
+  - [哈佛商业评论：你事业的上限究竟在哪里](dushu_sysx.html)
+  - [创新者的窘境](dushu_cxzdjj.html)
+  - [让大象飞](dushu_rdxf.html)
+- **Flutter**
+  - [Widget](flutter_widget.html)  [Layout](flutter_layout.html)  [Interactive](flutter_interactive.html)
+  - [Http](flutter_http.html)  [Json](flutter_json.html)
+  - [File](flutter_file.html)  [Assets](flutter_assets.html)
+  - [For Android](flutter_for_android.html)  [For iOS](flutter_for_ios.html)
+- 微信小程序
+  - [布局](xcx_layout.html)
+  - [图片](xcx_image.html)
+- **C/C++**
+  - [define](c_define.html)
+  - [getopt](c_getopt.html)
+  - [sscanf](c_sscanf.html)
+  - [函数指针](c_point_func.html)
+  - [可变参数](c_valist.html)
+  - [程序员的自我修养]()  [笔记1](dushu_cxydzwxy_1.html)  [笔记2](dushu_cxydzwxy_2.html)
+  - [字符串操作](c_string.html)
+  - [list.h](c_list.html)
+- **网络**
+  - [TCP](net_tcp.html)
+  - Https
+- **工具使用**
+  - Git
+  - Jupyter
+  - [Gradle自定插件](gradle_plugin_1.html)  [2](gradle_plugin_2.html)  [Task](android_task_1.html)
+- **他山之石**
+  - [Gityuan](http://gityuan.com)
+
+- **更多**
+  - [关于机器学习工程的最佳实践](https://developers.google.com/machine-learning/guides/rules-of-ml/?spm=a2c4e.11153940.blogcont625130.15.aaa6224eTloqH4)
+  - [现代IM系统中聊天消息的同步和存储方案探讨](https://www.jianshu.com/p/fc9cfa4b34b0?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation)
+  - [最全Tensorflow2.0 入门教程持续更新](https://zhuanlan.zhihu.com/p/59507137)
+
+
+
+![img](assets/index/1-150R2100644-51.jpg)

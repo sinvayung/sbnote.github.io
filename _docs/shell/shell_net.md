@@ -1,0 +1,830 @@
+# Linux常用网络工具总结
+
+## 总结了这几年使用过的网络工具
+
+*Posted by int32bit on May 4, 2016*
+
+本文整理了在实践过程中使用的Linux网络工具，这些工具提供的功能非常强大，我们平时使用的只是冰山一角，比如`lsof`、`ip`、`tcpdump`、`iptables`等。本文不会深入研究这些命令的强大用法，因为每个命令都足以写一篇文章，本文只是简单地介绍并辅以几个简单demo实例，旨在大脑中留个印象，平时遇到问题时能够快速搜索出这些工具，利用强大的`man`工具，提供一定的思路解决问题。
+
+## ping
+
+这个命令不用多说，我们通常使用这个命令判断网络的连通性以及网速，偶尔还顺带当做域名解析使用（查看域名的IP）：
+
+```
+ping google.com
+```
+
+默认使用该命令会一直发送ICMP包直到用户手动中止，可以使用`-c`命令指定发送数据包的个数，使用`-W`指定最长等待时间,如果有多张网卡，还可以通过`-I`指定发送包的网卡。
+
+```
+fgp@controller:~$ ping -c 2 -I eth0 -W 2 baidu.com
+ping: Warning: source address might be selected on device other than eth0.
+PING baidu.com (111.13.101.208) from 192.168.56.2 eth0: 56(84) bytes of data.
+From controller (192.168.56.2) icmp_seq=1 Destination Host Unreachable
+From controller (192.168.56.2) icmp_seq=2 Destination Host Unreachable
+
+--- baidu.com ping statistics ---
+2 packets transmitted, 0 received, +2 errors, 100% packet loss, time 1008ms
+pipe 2
+```
+
+以上命令会由eth0网卡发送两个包，并且最长等待2秒时间，执行完后会自动退出。
+
+**小技巧:** 在ping过程中按下`ctrl+|`会打印出当前的summary信息，统计当前发送包数量、接收数量、丢包率等。
+
+其他比如`-b`发送广播，另外注意ping只能使用ipv4，如果需要使用ipv6，可以使用`ping6`命令。
+
+## netstat
+
+这个命令用来查看当前建立的网络连接。最经典的案例就是查看本地系统打开了哪些端口：
+
+```
+fgp@controller:~$ sudo netstat -lnpt
+[sudo] password for fgp:
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 0.0.0.0:3306            0.0.0.0:*               LISTEN      2183/mysqld
+tcp        0      0 0.0.0.0:11211           0.0.0.0:*               LISTEN      2506/memcached
+tcp        0      0 0.0.0.0:9292            0.0.0.0:*               LISTEN      1345/python
+tcp        0      0 0.0.0.0:6800            0.0.0.0:*               LISTEN      2185/ceph-osd
+tcp        0      0 0.0.0.0:6801            0.0.0.0:*               LISTEN      2185/ceph-osd
+tcp        0      0 0.0.0.0:28017           0.0.0.0:*               LISTEN      1339/mongod
+tcp        0      0 0.0.0.0:6802            0.0.0.0:*               LISTEN      2185/ceph-osd
+tcp        0      0 0.0.0.0:6803            0.0.0.0:*               LISTEN      2185/ceph-osd
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1290/sshd
+```
+
+netstat能够查看所有的网络连接，包括unix socket连接，其功能非常强大。
+
+另外使用netstat还可以查看本地路由表：
+
+```
+fgp@controller:~$ sudo netstat -nr
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+0.0.0.0         192.168.1.1     0.0.0.0         UG        0 0          0 brqcb225471-1f
+172.17.0.0      0.0.0.0         255.255.0.0     U         0 0          0 docker0
+192.168.1.0     0.0.0.0         255.255.255.0   U         0 0          0 brqcb225471-1f
+192.168.56.0    0.0.0.0         255.255.255.0   U         0 0          0 eth1
+```
+
+以上`Genmask`为`0.0.0.0`的表示默认路由，即连接外网的路由。
+
+## lsof
+
+`lsof`命令用来查看打开的文件(list open files)，由于在Linux中一切皆文件，那socket、pipe等也是文件，因此能够查看网络连接以及网络设备，其中和网络最相关的是`-i`选项，它输出符合条件的进程（4、6、协议、:端口、 @ip等），它的格式为`[46][protocol][@hostname|hostaddr][:service|port]`,比如查看22端口有没有打开，哪个进程打开的:
+
+```
+fgp@controller:~$ sudo lsof -i :22
+COMMAND  PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+sshd    1290 root    3u  IPv4  10300      0t0  TCP *:ssh (LISTEN)
+sshd    1290 root    4u  IPv6  10302      0t0  TCP *:ssh (LISTEN)
+```
+
+可见22端口是sshd这个命令，其进程号pid为1290打开的。
+
+可以指定多个条件，但默认是OR关系的，如果需要AND关系，必须传入`-a`参数，比如查看22端口并且使用Ipv6连接的进程：
+
+```
+fgp@controller:~$ sudo lsof -c sshd -i 6 -a -i :22
+COMMAND  PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+sshd    1290 root    4u  IPv6  10302      0t0  TCP *:ssh (LISTEN)
+```
+
+列出所有与`192.168.56.1`（我的宿主机IP地址）的ipv4连接：
+
+```
+fgp@controller:~$ sudo lsof -i 4@192.168.56.1
+COMMAND  PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+sshd    2299 root    3u  IPv4  14047      0t0  TCP controller:ssh->mac:54558 (ESTABLISHED)
+sshd    2377  fgp    3u  IPv4  14047      0t0  TCP controller:ssh->mac:54558 (ESTABLISHED)
+```
+
+## iftop
+
+用过`top`以及`iotop`的，自然能够大致猜到`iftop`的功能，它是用于查看网络流量的工具（display bandwidth usage on an interface by host）：
+
+```
+sudo iftop
+```
+
+![iftop](assets/shell_net/iftop.png)
+
+## nc
+
+nc(netcat)被称为网络工具的瑞士军刀，其非常轻巧但功能强大！常常作为网络应用的Debug分析器，可以根据需要创建各种不同类型的网络连接。官方描述的功能包括:
+
+- simple TCP proxies
+- shell-script based HTTP clients and servers
+- network daemon testing
+- a SOCKS or HTTP ProxyCommand for ssh(1)
+- and much, much more
+
+总之非常强大，能够实现简单的聊天工具、模拟ssh登录远程主机、远程传输文件等。一个经典的用法是端口扫描。比如我要扫描`192.168.56.2`主机`1~100`端口，探测哪些端口开放的（黑客攻击必备）：
+
+```
+fgp@controller:~$ nc -zv 192.168.56.2 1-100 |& grep 'succeeded!'
+Connection to 192.168.56.2 22 port [tcp/ssh] succeeded!
+Connection to 192.168.56.2 80 port [tcp/http] succeeded!
+```
+
+从结果中发现，该主机打开了`22`和`80`端口。
+
+更多关于`nc`的demo可参考我实现的[基于nc封装的端口扫描工具](https://github.com/int32bit/portscanner)以及[nc命令实例](https://github.com/int32bit/notes/blob/master/linux/nc命令实例.md)。
+
+## tcpdump
+
+`tcpdump`(dump traffic on a network)是一个强大的命令行抓包工具，千万不要被它的名称误导以为只能抓取tcp包，它能抓任何协议的包。它能够实现`Wireshark`一样的功能，并且更加灵活自由！比如需要抓取目标主机是`192.168.56.1`，通过端口`22`的传输数据包：
+
+```
+sudo tcpdump -n -i eth1 'dst host 192.168.56.1 && port 22'
+```
+
+输出为：
+
+```
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth1, link-type EN10MB (Ethernet), capture size 65535 bytes
+23:57:39.507490 IP 192.168.56.2.22 > 192.168.56.1.54558: Flags [P.], seq 3010719012:3010719120, ack 1116715283, win 354, options [nop,nop,TS val 1049052 ecr 187891473], length 108
+23:57:39.507607 IP 192.168.56.2.22 > 192.168.56.1.54558: Flags [P.], seq 108:144, ack 1, win 354, options [nop,nop,TS val 1049052 ecr 187891473], length 36
+23:57:39.507784 IP 192.168.56.2.22 > 192.168.56.1.54558: Flags [P.], seq 144:252, ack 1, win 354, options [nop,nop,TS val 1049052 ecr 187891476], length 108
+```
+
+抓取`HTTP`包:
+
+```
+sudo tcpdump  -XvvennSs 0 -i eth0 tcp[20:2]=0x4745 or tcp[20:2]=0x4854
+```
+
+其中`0x4745`为`"GET"`前两个字母`"GE"`,`0x4854`为`"HTTP"`前两个字母`"HT"`。
+
+指定`-A`以ACII码输出数据包，使用`-c`指定抓取包的个数。
+
+## telnet
+
+telnet协议客户端(user interface to the TELNET protocol)，不过其功能并不仅仅限于telnet协议，有时也用来探测端口，比如查看本地端口22是否开放：
+
+```
+fgp@controller:~$ telnet localhost 22
+Trying ::1...
+Connected to localhost.
+Escape character is '^]'.
+SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2.6
+```
+
+可见成功连接到`localhost`的`22`端口，说明端口已经打开，还输出了`banner`信息。
+
+## ifconfig
+
+ifconfig也是熟悉的网卡配置工具(configure a network interface)，我们经常使用它来查看网卡信息（比如IP地址、发送包的个数、接收包的个数、丢包个数等）以及配置网卡（开启关闭网卡、修改网络mtu、修改ip地址等）。
+
+查看网卡ip地址：
+
+```
+fgp@controller:~$ ifconfig eth0
+eth0      Link encap:Ethernet  HWaddr 08:00:27:c9:b4:f2
+          inet6 addr: fe80::a00:27ff:fec9:b4f2/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:27757 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:589 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:10519777 (10.5 MB)  TX bytes:83959 (83.9 KB)
+```
+
+为网卡eth0增加一个新的地址（虚拟网卡）：
+
+```
+fgp@controller:~$ sudo ifconfig eth0:0 10.103.240.2/24
+fgp@controller:~$ ifconfig eth0:0
+eth0:0    Link encap:Ethernet  HWaddr 08:00:27:c9:b4:f2
+          inet addr:10.103.240.2  Bcast:10.103.240.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+```
+
+关闭网卡以及开启网卡：
+
+```
+sudo ifconfig eth0 down
+sudo ifconfig eth0 up
+```
+
+### nslookup & dig
+
+nslookup用于交互式域名解析(query Internet name servers interactively)，当然也可以直接传入域名作为Ad-Hoc命令使用，比如查看google.com的ip地址：
+
+```
+fgp@controller:~$ nslookup google.com
+Server:         114.114.114.114
+Address:        114.114.114.114#53
+
+Non-authoritative answer:
+Name:   google.com
+Address: 37.61.54.158
+```
+
+查看使用的DNS服务器地址：
+
+```
+fgp@controller:~$ nslookup
+> server
+Default server: 114.114.114.114
+Address: 114.114.114.114#53
+Default server: 8.8.8.8
+Address: 8.8.8.8#53
+```
+
+dig命令也是域名解析工具(DNS lookup utility)，不过提供的信息更全面：
+
+```
+fgp@controller:~$ dig google.com
+
+; <<>> DiG 9.9.5-3ubuntu0.8-Ubuntu <<>> google.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 53828
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 4, ADDITIONAL: 4
+
+;; QUESTION SECTION:
+;google.com.                    IN      A
+
+;; ANSWER SECTION:
+google.com.             2730    IN      A       37.61.54.158
+
+;; AUTHORITY SECTION:
+google.com.             10204   IN      NS      ns2.google.com.
+google.com.             10204   IN      NS      ns4.google.com.
+google.com.             10204   IN      NS      ns3.google.com.
+google.com.             10204   IN      NS      ns1.google.com.
+
+;; ADDITIONAL SECTION:
+ns1.google.com.         86392   IN      A       216.239.32.10
+ns2.google.com.         80495   IN      A       216.239.34.10
+ns3.google.com.         85830   IN      A       216.239.36.10
+ns4.google.com.         13759   IN      A       216.239.38.10
+
+;; Query time: 17 msec
+;; SERVER: 114.114.114.114#53(114.114.114.114)
+;; WHEN: Thu May 05 00:11:48 CST 2016
+;; MSG SIZE  rcvd: 180
+```
+
+## whois
+
+whois用于查看域名所有者的信息(client for the whois directory service)，比如注册邮箱、手机号码、域名服务商等：
+
+```
+fgp@controller:~$ whois coolshell.cn
+Domain Name: coolshell.cn
+ROID: 20090825s10001s91994755-cn
+Domain Status: ok
+Registrant ID: hc401628324-cn
+Registrant: 陈皓
+Registrant Contact Email: haoel@hotmail.com
+Sponsoring Registrar: 阿里云计算有限公司（万网）
+Name Server: f1g1ns1.dnspod.net
+Name Server: f1g1ns2.dnspod.net
+Registration Time: 2009-08-25 00:40:26
+Expiration Time: 2020-08-25 00:40:26
+DNSSEC: unsigned
+```
+
+我们发现`coolshell.cn`这个域名是陈皓在万网购买注册的，注册时间是2009年，注册邮箱是`haoel@hotmail.com`。
+
+## route
+
+route命令用于查看和修改路由表：
+
+查看路由表:
+
+```
+fgp@controller:~$ sudo route -n
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         192.168.1.1     0.0.0.0         UG    100    0        0 brqcb225471-1f
+172.17.0.0      0.0.0.0         255.255.0.0     U     0      0        0 docker0
+192.168.1.0     0.0.0.0         255.255.255.0   U     0      0        0 brqcb225471-1f
+192.168.56.0    0.0.0.0         255.255.255.0   U     0      0        0 eth1
+```
+
+增加/删除路由分别为`add`/`del`子命令,比如删除默认路由：
+
+```
+sudo route del default
+```
+
+增加默认路由，网关为192.168.1.1，网卡为brqcb225471-1f：
+
+```
+sudo route add default gw 192.168.1.1 dev brqcb225471-1f
+```
+
+## ip
+
+ip命令可以说是无比强大了，它完全可以替换`ifconfig`、`netstat`、`route`、`arp`等命令，比如查看网卡eth1 IP地址：
+
+```
+fgp@controller:~$ sudo ip addr ls  dev eth1
+3: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:9a:d5:d1 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.56.2/24 brd 192.168.56.255 scope global eth1
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:fe9a:d5d1/64 scope link
+       valid_lft forever preferred_lft forever
+```
+
+查看网卡eth1配置：
+
+```
+fgp@controller:~$ sudo ip link ls eth1
+3: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 08:00:27:9a:d5:d1 brd ff:ff:ff:ff:ff:ff
+```
+
+查看路由：
+
+```
+fgp@controller:~$ ip route
+default via 192.168.1.1 dev brqcb225471-1f
+172.17.0.0/16 dev docker0  proto kernel  scope link  src 172.17.0.1
+192.168.1.0/24 dev brqcb225471-1f  proto kernel  scope link  src 192.168.1.105
+192.168.56.0/24 dev eth1  proto kernel  scope link  src 192.168.56.2
+```
+
+查看arp信息：
+
+```
+fgp@controller:~$ sudo ip neigh
+192.168.56.1 dev eth1 lladdr 0a:00:27:00:00:00 REACHABLE
+192.168.0.6 dev vxlan-80 lladdr fa:16:3e:e1:30:c8 PERMANENT
+172.17.0.2 dev docker0 lladdr 02:42:ac:11:00:02 STALE
+192.168.56.3 dev eth1  FAILED
+192.168.1.1 dev brqcb225471-1f lladdr 30:fc:68:41:12:c6 STALE
+```
+
+查看网络命名空间:
+
+```
+fgp@controller:~$ sudo ip netns ls
+qrouter-24bf83c7-f61d-496b-8115-09f0f3d64d21
+qdhcp-9284d7a8-711a-4927-8a10-605b34372768
+qdhcp-cb225471-1f85-4771-b24b-a4a7108d93a4
+```
+
+进入某个网络命名空间:
+
+```
+fgp@controller:~$ sudo ip netns exec qrouter-24bf83c7-f61d-496b-8115-09f0f3d64d21 bash
+root@controller:~# ifconfig
+qg-0d258e6d-83 Link encap:Ethernet  HWaddr fa:16:3e:93:6f:a3
+          inet addr:172.16.1.101  Bcast:172.16.1.255  Mask:255.255.255.0
+          inet6 addr: fe80::f816:3eff:fe93:6fa3/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1035 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:16 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:102505 (102.5 KB)  TX bytes:1200 (1.2 KB)
+```
+
+## brctl
+
+`brctl`是linux网桥管理工具，可用于查看网桥、创建网桥、把网卡加入网桥等。
+
+查看网桥:
+
+```
+fgp@controller:~$ sudo brctl show
+bridge name     bridge id               STP enabled     interfaces
+brq9284d7a8-71          8000.12841adee45f       no              tap36daf550-27
+                                                        tape729e013-df
+                                                        vxlan-80
+brqcb225471-1f          8000.080027c9b4f2       no              eth0
+                                                        tap0d258e6d-83
+                                                        tapb844e7a5-83
+docker0         8000.0242e4580b61       no              veth50ed8dd
+```
+
+以上因为部署了`openstack neutron`以及`docker`，因此网桥比较复杂。 其他子命令如`addbr`用于创建网桥、`delbr`用户删除网桥（删除之前必须处于down状态，使用`ip link set br_name down`)、`addif`把网卡加到网桥等。
+
+## traceroute
+
+ping命令用于探测两个主机间连通性以及响应速度，而traceroute会统计到目标主机的每一跳的网络状态（print the route packets trace to network host），这个命令常常用于判断网络故障，比如本地不通，可使用该命令探测出是哪个路由出问题了。如果网络很卡，该命令可判断哪里是瓶颈：
+
+```
+fgp@controller:~$ sudo traceroute  -I -n int32bit.me
+traceroute to int32bit.me (192.30.252.154), 30 hops max, 60 byte packets
+ 1  192.168.1.1  4.610 ms  5.623 ms  5.515 ms
+ 2  117.100.96.1  5.449 ms  5.395 ms  5.356 ms
+ 3  124.205.97.48  5.362 ms  5.346 ms  5.331 ms
+ 4  218.241.165.5  5.322 ms  5.310 ms  5.299 ms
+ 5  218.241.165.9  5.187 ms  5.138 ms  7.386 ms
+ ...
+```
+
+可以看到，从主机到`int32bit.me`共经过30跳，并统计了每一跳间的响应时间。
+
+另外可以参考`tracepath`。
+
+## mtr
+
+mtr是常用的网络诊断工具(a network diagnostic tool)，它把ping和traceroute并入一个程序的网络诊断工具中并实时刷新。
+
+```
+mtr -n int32bit.me
+```
+
+输出如图:![mtr](assets/shell_net/mtr.png)从图上可以看出从本地到`int32bit.me`经过的所有路由，每一个路由间的丢包率、响应时间等。
+
+## ss
+
+ss命令也是一个查看网络连接的工具(another utility to investigate sockets),用来显示处于活动状态的套接字信息。关于ss的描述，引用[Linux命令大全-ss命令](http://man.linuxde.net/ss)
+
+> ss命令可以用来获取socket统计信息，它可以显示和netstat类似的内容。但ss的优势在于它能够显示更多更详细的有关TCP和连接状态的信息，而且比netstat更快速更高效。当服务器的socket连接数量变得非常大时，无论是使用netstat命令还是直接cat /proc/net/tcp，执行速度都会很慢。可能你不会有切身的感受，但请相信我，当服务器维持的连接达到上万个的时候，使用netstat等于浪费 生命，而用ss才是节省时间。 天下武功唯快不破。ss快的秘诀在于，它利用到了TCP协议栈中tcp_diag。tcp_diag是一个用于分析统计的模块，可以获得Linux 内核中第一手的信息，这就确保了ss的快捷高效。当然，如果你的系统中没有tcp_diag，ss也可以正常运行，只是效率会变得稍慢。
+
+其中比较常用的参数包括:
+
+- -l 查看处于LISTEN状态的连接
+- -t 查看tcp连接
+- -4 查看ipv4连接
+- -n 不进行域名解析
+
+因此我们可以通过`ss`命令查看本地监听的所有端口(和netstat命令功能类似):
+
+```
+ss  -t -l -n -4
+```
+
+输出如图:![ss](assets/shell_net/ss.png)
+
+## python
+
+没看错，就是python，它是一种面向对象、解释型程序设计语言，由Guido van Rossum于1989年发明，第一个公开发行版发行于1991年。放在这里，主要是使用python非常方便的开启web服务器共享文件（为了共享文件，不是每个人都乐意部署一个ftp服务器或者通过scp发送）：
+
+此时可以使用`python 2`的`SimpleHTTPServer`模块快速启动一个服务器共享文件，不过注意这个服务器是单进程单线程，因此同时只支持一个连接，如果需要考虑高并发，只能使用ftp或者nginx了。
+
+```
+cd shares/
+python -m SimpleHTTPServer
+```
+
+或者`python 3`
+
+```
+python3 -m http.server
+```
+
+此时会在本地监听8000端口，对方使用浏览器访问你的ip和端口即可下载共享的文件，非常方便。
+
+## curl
+
+curl是强大的URL传输工具，支持FILE, FTP, HTTP, HTTPS, IMAP, LDAP, POP3,RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, TELNET以及TFTP等协议。我们使用这个命令最常用的功能就是通过命令行发送HTTP请求以及下载文件，它几乎能够模拟所有浏览器的行为请求，比如模拟refer(从哪个页面跳转过来的）、cookie、agent（使用什么浏览器）等等，同时还能够模拟表单数据。
+
+登录北邮校园网:
+
+```
+curl -X POST -d "DDDDD=2013140333&upass=1q2w3e4r&save_me=1&R1=0" 10.3.8.211
+```
+
+以上方法利用curl往认证服务器发送POST请求，发送数据为用户名以及密码（模拟表单输入）。
+
+具体用法参考[buptLogin](https://github.com/int32bit/buptLogin)。
+
+Openstack的命令行工具，比如nova，传入`--debug`参数就会显示`curl`往nova-api的curl REST请求。
+
+curl命令非常强大，掌握了它能够发挥巨大的作用，其他有用参数列举如下：
+
+- `-i` 显示头部信息
+- `-I` 只显示头部信息，不显示正文
+- `-X` 指定请求方法，比如GET、POST等
+- `-d` 发送数据
+- `--form`模拟表单，利用这个参数可以上传文件、模拟点击按钮等
+- `-A` 指定用户代理，比如`Mozilla/4.0`,有些坑爹网址必须使用IE访问怎么办
+- `-b` 设置cookie
+- `-c` 指定cookie文件
+- `-e` 指定referer，有些网址必须从某个页面跳转过去
+- `--header` 设置请求的头部信息
+- `--user` 有些页面需要HTTP认证， 传递`name:password`认证
+
+## wget
+
+wget是一个强大的非交互网络下载工具（The non-interactive network downloader），虽然curl也支持文件下载，不过wget更强大，比如支持断点下载等。
+
+最简单的用法直接加上文件URL即可：
+
+```
+wget http://xxx/xxx/video.mp4
+```
+
+使用`-r`参数为递归的下载网页，默认递归深度为5，相当于爬虫，用户可以通过`-l`指定递归深度。
+
+注意wget默认没有开启断点下载功能，需要手动传入`-c`参数。
+
+如果需要批量下载，可以把所有的URL写入文件download.txt,然后通过`-i`指定下载文件列表：
+
+```
+wget -i download.txt
+```
+
+如果用户不指定保存文件名，wget默认会以最后一个符合/的后面的字符作为保存文件名，有时不是我们所期望的，此时需要`-O`指定保存的文件名。
+
+通过`--limit-rate`可以限制下载的最大速度。
+
+使用`-b`可以实现后台下载。
+
+另外wget甚至可以镜像整个网站:
+
+```
+wget --mirror -p --convert-links -P int32bit http://int32bit.me
+```
+
+wget还支持指定下载文件的格式，比如只下载jpg图片:
+
+```
+wget -A.jpg -r -l 2 http://int32bit.me/
+```
+
+## axel
+
+axel是一个多线程下载工具（A light download accelerator for Linux），通过建立多连接，能够大幅度提高下载速度，所以我经常使用这个命令开挂下载大文件，比wget快多了，并且默认就支持断点下载:
+
+开启20个线程下载文件:
+
+```
+axel -n 20 URL
+```
+
+这个强大的下载工具极力推荐，非常好用！
+
+## nethogs
+
+我们前面介绍的iftop工具能够根据主机查看流量(by host)，而nethogs则可以根据进程查看流量信息(Net top tool grouping bandwidth per process)。ubuntu14.04中使用apt-get安装的有bug，需要手动安装：
+
+```
+sudo apt-get install build-essential libncurses5-dev libpcap-dev
+git clone https://github.com/raboof/nethogs
+cd nethogs
+make -j 4
+```
+
+编译完后执行
+
+```
+./nethogs eth1
+```
+
+我们指定了监控的网卡为eth1，结果如图：
+
+![nethogs](assets/shell_net/nethogs.png)
+
+由于eth1是私有ip，只有ssh进程，从图中我们可以看到它的进程号为17264，程序为sshd，共发送了1.593MB数据，接收了607.477MB数据（scp了一个镜像文件）。按`m`键还能切换视角查看当前流量。
+
+## iptables
+
+iptables是强大的包过滤工具，Docker、Neutron都网络配置都离不开iptables。iptables通过一系列规则来实现数据包过滤、处理，能够实现防火墙、NAT等功能。当一个网络数据包进入到主机之前，先经过Netfilter检查，即iptables规则，检查通过则接受（Accept）进入本机资源，否则丢弃该包（Drop）。规则是有顺序的，如果匹配第一个规则，则执行该规则的Action，不会执行后续的规则。iptables的规则有多个表构成，每个表又由链（chain）构成，每个表的功能不一样，本文只涉及两个简单的表，即Filter表和NAT表，望文生义即可了解，Filter表用于包过滤，而NAT表用来进行源地址和目的地址的IP或者端口转换。
+
+### 1.Filter表
+
+Filter表主要和进入Linux本地的数据包有关，也是默认的表。该表主要由三条链构成：
+
+- INPUT：对进入主机的数据包过滤
+- OUTPUT：对本地发送的数据包过滤
+- FORWARD：传递数据包到后端计算机，与NAT有点类似。
+
+查看本地的Filter表:
+
+```
+fgp@controller:~$ sudo iptables -n -t filter --list
+[root@portal ~]# iptables -n -t filter --list
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination
+```
+
+其中`-n`表示不进行域名解析,`-t`指定使用的表,`--list`表示列出所有规则。我们发现目前没有定义任何规则。注意链后面的policy为`ACCEPT`，表示若通过所有的规则都不匹配，则为默认action accept。
+
+接下来将通过几个demo实例演示怎么使用Filter表。
+
+**注意：**
+
+- 本文实验使用的是本机虚拟机，其中宿主机地址为192.168.56.1，虚拟机地址为192.168.56.2，在实验中会涉及丢弃192.168.56.1的数据包，如果您连接的是远程云主机，将导致和远程主机断开连接。
+- 以下每个步骤，除非特别说明，下一个步骤执行前，务必清空上一个步骤的规则：
+
+```
+sudo iptables -F
+```
+
+首先看一个简单的例子，把192.168.56.1加入黑名单禁止其访问：
+
+```
+sudo iptables -A INPUT -i eth1 -s 192.168.56.1 -j DROP
+```
+
+例子中`-A`表示追加规则，`INPUT`是链名,`-i`指定网卡，`-s`指定源IP地址，`-j`指定action，这里为`DROP`，即丢弃包。
+
+此时192.168.56.1这个ip不能和主机通信了，ssh会立即掉线，只能通过vnc连接了！
+
+`-s`不仅能够指定IP地址，还可以指定网络地址，使用`-p`指定协议类型，比如我们需要丢掉所有来自`192.168.56.0/24`这个网络地址的`ICMP`包，即不允许`ping`：
+
+```
+sudo iptables -A INPUT -s 192.168.56.0/24 -i eth1 -p icmp -j DROP
+```
+
+输出结果：
+
+```
+➜  ~ nc -z 192.168.56.2 22
+Connection to 192.168.56.2 port 22 [tcp/ssh] succeeded!
+➜  ~ ping 192.168.56.2
+PING 192.168.56.2 (192.168.56.2): 56 data bytes
+Request timeout for icmp_seq 0
+Request timeout for icmp_seq 1
+^C
+--- 192.168.56.2 ping statistics ---
+3 packets transmitted, 0 packets received, 100.0% packet loss
+```
+
+我们发现能够通过nc连接主机，但ping不通。
+
+我们还可以通过`--dport`指定目标端口，比如不允许192.168.56.1这个主机ssh连接（不允许访问22端口）：
+
+```
+sudo iptables -A INPUT -s 192.168.56.1 -p tcp --dport 22 -i eth1 -j DROP
+```
+
+**注意：**使用`--dport`或者`--sport`必须同时使用`-p`指定协议类型，否则无效！
+
+以上把192.168.56.1打入了ssh黑名单,此时能够ping通主机，但无法通过ssh连接主机。
+
+Filter表的介绍就到此为止，接下来看NAT表的实例。
+
+### 2.NAT表
+
+NAT表默认由以下三条链构成：
+
+- PREROUTING：在进行路由判断前所要进行的规则(DNAT/Redirect)
+- POSTROUTING: 在进行路由判断之后要进行的规则(SNAT/MASQUERADE)
+- OUTPUT: 与发送的数据包有关
+
+根据需要修改的是源IP地址还是目标IP地址，NAT可以分为两种：
+
+- DNAT：需要修改目标地址（IP或者端口），使用场景为从外网来的数据包需要映射到内部的一个私有IP，比如`46.64.22.33->192.168.56.1`。显然作用在`PREROUTING`。
+- SNAT：需要修改源地址（IP或者端口），使用场景和DNAT相反，内部私有IP需要发数据包出去，必须首先映射成公有IP，比如`192.168.56.1->46.64.22.33`。显然作用在`POSTROUTING`。
+
+首先实现介绍一个简单的demo，端口转发，我们把所有来自2222的tcp请求转发到本机的22端口,显然需要修改目标地址，因此属于DNAT：
+
+```
+sudo iptables -t nat -A PREROUTING -p tcp --dport 2222 -j REDIRECT --to-ports 22
+```
+
+此时在192.168.56.1上使用ssh连接，指定端口为2222：
+
+```
+ssh fgp@192.168.56.2 -p 2222
+```
+
+我们能够顺利登录，说明端口转发成功。
+
+另一个例子是使用双网卡linux系统作为路由器，我们有一台服务器controller有两个网卡:
+
+```
+eth0: 192.168.1.102 # 可以通外网
+eth1: 192.168.56.2 # 不可以通外网，用作网关接口。
+```
+
+另外一台服务器node1只有一个网卡eth1，IP地址为192.168.56.3，不能通外网。我们设置默认路由为controller机器的eth1：
+
+```
+sudo route add default gw 192.168.56.2 dev eth1
+```
+
+此时路由表信息为:
+
+```
+fgp@node1:~$ sudo route -n
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         192.168.56.2    0.0.0.0         UG    0      0        0 eth1
+192.168.56.0    0.0.0.0         255.255.255.0   U     0      0        0 eth1
+```
+
+由路由表可知，node1上的数据包会发送到网关192.168.56.2，即controller节点.
+
+接下来我们要在服务器controller上配置NAT，我们需要实现`192.168.56.0/24`的IP都转发到eth0，显然是SNAT，修改的源地址为eth0 IP地址`192.168.1.102`:
+
+```
+sudo iptables -t nat -A POSTROUTING -s 192.168.56.0/24 -o eth0 -j SNAT --to-source 192.168.1.102
+```
+
+其中-t指定nat表，-A 指定链为POSTROUTING，-s 为源ip地址段，-o指定转发网卡，注意-j参数指定action为SNAT，并指定eth0 IP地址(注意eth0可能配置多个ip地址，因此必须指定`--to-source`）。
+
+此时在node1机器上检测网络连通性:
+
+```
+fgp@node1:~$ ping baidu.com -c 2
+PING baidu.com (180.149.132.47) 56(84) bytes of data.
+64 bytes from 180.149.132.47: icmp_seq=1 ttl=48 time=7.94 ms
+64 bytes from 180.149.132.47: icmp_seq=2 ttl=48 time=6.32 ms
+
+--- baidu.com ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 6.328/7.137/7.946/0.809 ms
+```
+
+node1能够正常上网。
+
+以上通过使用controller的网卡eth0作为路由实现了node1的上网，但同时有一个问题存在，我们在指定SNAT时必须手动指定IP，如果eth0 IP地址变化了，必须修改iptables规则。显然这样很难维护，我们可以通过`MASQUERADE`实现动态SNAT，不需要指定IP地址：
+
+```
+sudo iptables -t nat -A POSTROUTING -s 192.168.56.0/24 -o eth0 -j MASQUERADE
+```
+
+### 其他
+
+使用`iptables-save`能够导出规则，使用`iptables-restore`能够从文件中导入规则。
+
+## ipset
+
+以上我们通过iptables封IP，如果IP地址非常多，我们就需要加入很多的规则，这些规则需要一一判断，性能会下降（线性的）。ipset能够把多个主机放入一个集合，iptables能够针对这个集合设置规则，既方便操作，又提高了执行效率。注意ipset并不是只能把ip放入集合，还能把网络地址、mac地址、端口等也放入到集合中。
+
+首先我们创建一个ipset：
+
+```
+sudo ipset create blacklist hash:ip
+```
+
+以上创建了一个blacklist集合，集合名称后面为存储类型，除了hash表，还支持bitmap、link等，后面是存储类型，我们指定的是ip，表示我们的集合元素为ip地址。
+
+我们为这个blacklist集合增加一条规则，禁止访问：
+
+```
+sudo iptables -I INPUT -m set --match-set blacklist src -j DROP 
+```
+
+此时只要在blacklist的ip地址就会自动加入黑名单。
+
+我们把192.168.56.1和192.168.56.3加入黑名单中：
+
+```
+sudo ipset add blacklist 192.168.56.3
+sudo ipset add blacklist 192.168.56.1
+```
+
+此时ssh连接中断，使用vnc连接查看：
+
+```
+fgp@controller:~/github/int32bit.github.io$ sudo ipset list blacklist
+Name: blacklist
+Type: hash:ip
+Revision: 2
+Header: family inet hashsize 1024 maxelem 65536
+Size in memory: 176
+References: 1
+Members:
+192.168.56.1
+192.168.56.3
+```
+
+把192.168.56.1移除黑名单：
+
+```
+sudo ipset del blacklist 192.168.56.1
+```
+
+我们上面的例子指定的类型为ip，除了ip，还可以是网络段，端口号（支持指定TCP/UDP协议），mac地址，网络接口名称，或者上述各种类型的组合。比如指定 hash:ip,port就是 IP地址和端口号共同作为hash的键。指定类型为`net`既可以放入ip地址，也可以放入网络地址。
+
+另外ipset还支持timeout参数，可以指定时间，单位为秒，超过这个时间，ipset会自动从集合中移除这个元素，比如封`192.168.56.1`1分钟时间不允许访问
+
+```
+sudo ipset create blacklist hash:net timeout 300
+sudo ipset add blacklist 192.168.56.1 timeout 60
+```
+
+以上首先创建了支持timeout的集合，这个集合默认超时时间为300s，接着把192.168.56.1加入到集合中并设置时间为60s。
+
+**注意：**执行`ipset add`时指定timeout必须保证创建的集合支持timeout参数，即设置默认的timeout时间.如果不想为集合设置默认timeout时间，而又想支持timeout，可以设置timeout为0，相当于默认不会超时。
+
+## 总结
+
+本文总结了Linux中的常用的网络工具，其中包括
+
+- 网络配置相关：ifconfig、ip
+- 路由相关：route、netstat、ip
+- 查看端口工具：netstat、lsof、ss、nc、telnet
+- 下载工具：curl、wget、axel
+- 防火墙：iptables、ipset
+- 流量相关：iftop、nethogs
+- 连通性及响应速度：ping、traceroute、mtr、tracepath
+- 域名相关：nslookup、dig、whois
+- web服务器：python、nginx
+- 抓包相关：tcpdump
+- 网桥相关：ip、brctl、ifconfig、ovs
+
+这些工具非常强大，本文只介绍了最基本的使用方法，更详细的使用可以参考命令文档。
+
+
+
+http://int32bit.me/2016/05/04/Linux常用网络工具总结/

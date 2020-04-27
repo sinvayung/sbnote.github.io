@@ -1,0 +1,257 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"if",
+				"ifmain\tif __name__ == '__main__'"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"json",
+				"Indent JSON"
+			],
+			[
+				"xml",
+				"Indent XML"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/simba/sbnote/sbnote.github.io",
+		"/Users/simba/sbnote/sbnote.github.io/_docs"
+	],
+	"file_history":
+	[
+		"/Users/simba/sbnote/sbnote.github.io/_config.yml",
+		"/Users/simba/Downloads/tinyhttpd-0.1.0/httpd.c",
+		"/Users/simba/sbnote/sbnote.github.io/_docs/pandas.md",
+		"/Users/simba/sbnote/sbnote.github.io/_docs/test_doc.md",
+		"/Users/simba/sbnote/sbnote.github.io/pages/test_page.md",
+		"/Users/simba/sbnote/sbnote.github.io/_data/toc.yml",
+		"/Users/simba/sbnote/sbnote.github.io/_docs/ida.md",
+		"/Users/simba/sbnote/sbnote.github.io/_docs/elasticsearch.md",
+		"/Users/simba/sbnote/sbnote.github.io/_docs/getting-started.md",
+		"/Users/simba/sbnote/sbnote.github.io/_docs/extras/index.md",
+		"/Users/simba/sbnote/sbnote.github.io/_docs/example-page.md",
+		"/Users/simba/sbnote/sbnote.github.io/pages/index.md",
+		"/Users/simba/sbnote/sbnote.github.io/_docs/ffmpeg.md",
+		"/Users/simba/sbnote/sbnote.github.io/_docs/vue.md",
+		"/Users/simba/sbnote/sbnote.github.io/_docs/shell.md",
+		"/Users/simba/sbnote/sbnote.github.io/_docs/numpy.md",
+		"/Users/simba/sbnote/sbnote.github.io/_docs/git.md",
+		"/Users/simba/sbnote/sbnote.github.io/_docs/android.md",
+		"/Users/simba/sbnote/sbnote.github.io/_docs/miniprogram.md",
+		"/Users/simba/sbnote/sbnote.github.io/_docs/tensorflow.md",
+		"/Users/simba/sbnote/sbnote.github.io/_docs/gradle.md",
+		"/Users/simba/sbnote/sbnote.github.io/_docs/linux.md",
+		"/Users/simba/sbnote/sbnote.github.io/_docs/flutter.md",
+		"/Users/simba/sbnote/sbnote.github.io/_docs/python.md",
+		"/Users/simba/sbnote/sbnote.github.io/_docs/java.md",
+		"/Users/simba/sbnote/sbnote.github.io的副本/tools/git.md",
+		"/Users/simba/utils/ffmpeg-4.2.2/INSTALL.md",
+		"/Users/simba/sbnote/一分钟学编程/pystudy_01.py",
+		"/Users/simba/sbnote/一分钟学编程/pystudy_02.py",
+		"/Users/simba/sbnote/一分钟学编程/pystart_01.py",
+		"/Users/simba/sbnote/peppy.py",
+		"/Users/simba/job/judge/judge_projects/elastic_search/ui_20200313_014154.xml",
+		"/Users/simba/job/judge/judge_projects/elastic_search/ui_20200313_012107.xml",
+		"/Users/simba/job/judge/judge_projects/query_tools/dbs/1.txt",
+		"/Users/simba/tencent_cloud.txt",
+		"/Library/Frameworks/Python.framework/Versions/3.6/share/jupyter/kernels/python3/kernel.json",
+		"/Users/simba/Library/Containers/com.tencent.WeWorkMac/Data/Library/Application Support/WXWork/Data/1688851418302993/Cache/File/2020-03/out.txt",
+		"/Users/simba/Downloads/intellieye_to_weixin (1).py",
+		"/Users/simba/wechat_account.txt",
+		"/Users/simba/sbnote/t.md",
+		"/Users/simba/job/data/t_td_safe_intellieye_cloud_check_pcsd_uct_nowhite_20200218_fsha1_part_07.result",
+		"/Users/simba/Downloads/proxy_ngn.pac",
+		"/Applications/IDA Pro 7.0/ida.app/Contents/MacOS/dbgsrv/mac_server64",
+		"/Users/simba/sbnote/dl/深度学习与TensorFlow入门实战-源码和PPT/lesson13-前向传播（张量）-实战/forward.py",
+		"/Users/simba/Desktop/name.csv",
+		"/Users/simba/sbnote/dl/深度学习与TensorFlow入门实战-源码和PPT/lesson04-回归问题实战/linear_regression.py",
+		"/Users/simba/a.txt",
+		"/Users/simba/pytest/test.py"
+	],
+	"find":
+	{
+		"height": 41.0
+	},
+	"find_in_files":
+	{
+		"height": 143.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 41.0
+	},
+	"input":
+	{
+		"height": 83.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 390.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "sbnote.sublime-project",
+	"replace":
+	{
+		"height": 78.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"pystudy_01.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 346.0,
+	"status_bar_visible": false,
+	"template_settings":
+	{
+	}
+}
