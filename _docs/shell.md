@@ -1,6 +1,6 @@
 ---
-title: Getting Started
-description: Getting started with Docsy Jekyll
+title: Shell
+description: Shell
 ---
 
 ## Shell

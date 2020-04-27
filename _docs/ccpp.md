@@ -1,6 +1,6 @@
 ---
-title: Getting Started
-description: Getting started with Docsy Jekyll
+title: C/C++
+description: C/C++
 ---
 
 ## C/C++

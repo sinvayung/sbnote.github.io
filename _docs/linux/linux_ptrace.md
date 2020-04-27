@@ -1,3 +1,8 @@
+---
+title: Playing with ptrace, Part I
+description: Playing with ptrace, Part I
+---
+
 # Playing with ptrace, Part I
 
 Have you ever wondered how system calls can be intercepted? Have you ever tried fooling the kernel by changing system call arguments? Have you ever wondered how debuggers stop a running process and let you take control of the process?

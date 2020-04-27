@@ -1,3 +1,8 @@
+---
+title: Linux系统调用(syscall)原理
+description: Linux系统调用(syscall)原理
+---
+
 # Linux系统调用(syscall)原理
 
 

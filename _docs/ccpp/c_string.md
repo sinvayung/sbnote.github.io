@@ -1,3 +1,8 @@
+---
+title: 字符串操作函数大全
+description: 字符串操作函数大全
+---
+
 # 字符串操作函数大全
 
 #### cstring - Copying:

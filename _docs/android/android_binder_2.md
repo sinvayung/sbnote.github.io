@@ -1,3 +1,8 @@
+---
+title: 理解Android Binder机制2/3：C++层
+description: 理解Android Binder机制2/3：C++层
+---
+
 ## 理解Android Binder机制2/3：C++层
 
  Posted on Feb 12, 2017

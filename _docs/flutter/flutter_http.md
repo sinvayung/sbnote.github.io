@@ -1,3 +1,8 @@
+---
+title: 在Flutter中发起HTTP网络请求
+description: 在Flutter中发起HTTP网络请求
+---
+
 # 在Flutter中发起HTTP网络请求
 
 本页介绍如何在Flutter中创建HTTP网络请求。对于socket，请参阅[dart:io](https://docs.flutter.io/flutter/dart-io/dart-io-library.html)。

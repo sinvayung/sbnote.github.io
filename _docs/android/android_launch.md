@@ -1,3 +1,8 @@
+---
+title: Android - 系统启动过程
+description: Android - 系统启动过程
+---
+
 # Android - 系统启动过程
 
 ## 计算机是如何启动的？

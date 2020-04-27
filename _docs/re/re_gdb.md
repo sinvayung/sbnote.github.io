@@ -1,3 +1,8 @@
+---
+title: gdb Debugging Full Example (Tutorial): ncurses
+description: gdb Debugging Full Example (Tutorial): ncurses
+---
+
 ## gdb Debugging Full Example (Tutorial): ncurses
 
 09 Aug 2016

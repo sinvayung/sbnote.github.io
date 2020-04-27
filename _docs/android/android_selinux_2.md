@@ -1,3 +1,8 @@
+---
+title: SELinux文件访问安全策略和app权限配置
+description: SELinux文件访问安全策略和app权限配置
+---
+
 # SELinux文件访问安全策略和app权限配置
 
 ```

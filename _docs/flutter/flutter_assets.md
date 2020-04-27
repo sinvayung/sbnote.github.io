@@ -1,3 +1,8 @@
+---
+title: 在Flutter中添加资源和图片
+description: 在Flutter中添加资源和图片
+---
+
 # 在Flutter中添加资源和图片
 
 - [介绍](https://flutterchina.club/assets-and-images/#%E4%BB%8B%E7%BB%8D)

@@ -1,3 +1,8 @@
+---
+title: Linux vi/vim
+description: Linux vi/vim
+---
+
 # Linux vi/vim
 
 ![img](assets/shell_vi/vi-vim-cheat-sheet.gif)

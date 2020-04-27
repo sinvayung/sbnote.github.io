@@ -1,3 +1,8 @@
+---
+title: Android NDK开发：JNI基础篇
+description: Android NDK开发：JNI基础篇
+---
+
 # Android NDK开发：JNI基础篇
 
 ### 1. JNI 概念

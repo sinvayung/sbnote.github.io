@@ -1,3 +1,8 @@
+---
+title: [This was posted to comp.lang.c by its author, David Anderson, on 1994-05-06.]
+description: [This was posted to comp.lang.c by its author, David Anderson, on 1994-05-06.]
+---
+
 [This was posted to comp.lang.c by its author, David Anderson, on 1994-05-06.]
 
 # The ``Clockwise/Spiral Rule''

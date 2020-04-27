@@ -1,6 +1,6 @@
 ---
-title: Getting Started
-description: Getting started with Docsy Jekyll
+title: 字符串函数
+description: 字符串函数
 ---
 
 

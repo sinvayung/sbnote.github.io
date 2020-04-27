@@ -1,3 +1,8 @@
+---
+title: Android 截屏方式整理
+description: Android 截屏方式整理
+---
+
 # Android 截屏方式整理
 
  Android 实现截屏方式整理

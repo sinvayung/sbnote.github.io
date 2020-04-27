@@ -1,3 +1,8 @@
+---
+title: 你真的理解AccessibilityService吗
+description: 你真的理解AccessibilityService吗
+---
+
 # 你真的理解AccessibilityService吗
 
 微信红包自打出世以来就极其受欢迎,抢红包插件可谓红极一时.今天,我们重新谈谈抢红包插件的哪些事儿.本质上,抢红包插件的原理不难理解,其过程就是在收到红包时,自动模拟点击.做过自动化UI测试的童鞋应该非常熟悉了.那么问题来了,我们怎么知道有没有红包,又怎么模拟点击操作呢?在PC端我们有按键精灵,那么在Android设备上呢?话说也偶然,Google为了让Android系统更实用,为用户提供了无障碍辅助服务(`AccessibilityService`).

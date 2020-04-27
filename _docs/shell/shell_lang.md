@@ -1,3 +1,8 @@
+---
+title: | Shell脚本语法                                                |                    |                                                              |
+description: | Shell脚本语法                                                |                    |                                                              |
+---
+
 
 
 | Shell脚本语法                                                |                    |                                                              |

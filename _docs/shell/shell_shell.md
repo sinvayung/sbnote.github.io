@@ -1,3 +1,8 @@
+---
+title: 5. netstat - 检验各端口的网络连接情况
+description: 5. netstat - 检验各端口的网络连接情况
+---
+
 5. netstat - 检验各端口的网络连接情况
 
 netstat命令用于显示TP，TCP，UDP和ICMP等协议相关的统计数据，一般用于检验本机各端口的网络连接情况。

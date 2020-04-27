@@ -1,3 +1,8 @@
+---
+title: 理解Android Binder机制3/3：Java层
+description: 理解Android Binder机制3/3：Java层
+---
+
 ## 理解Android Binder机制3/3：Java层
 
  Posted on Mar 15, 2017

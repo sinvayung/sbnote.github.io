@@ -1,3 +1,8 @@
+---
+title: getopt和getopt_long函数
+description: getopt和getopt_long函数
+---
+
 #  getopt和getopt_long函数
 
 2012年09月04日 17:44:21 [开水](https://me.csdn.net/Cashey1991) 阅读数：41134

@@ -1,3 +1,8 @@
+---
+title: Linux Daemon Writing HOWTO
+description: Linux Daemon Writing HOWTO
+---
+
 # Linux Daemon Writing HOWTO
 
 ## [Devin Watson](mailto:dmwatson@comcast.net)

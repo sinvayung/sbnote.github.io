@@ -1,3 +1,8 @@
+---
+title: python读写文件，和设置文件的字符编码比如utf-8
+description: python读写文件，和设置文件的字符编码比如utf-8
+---
+
 # python读写文件，和设置文件的字符编码比如utf-8
 
 一. python打开文件代码如下：

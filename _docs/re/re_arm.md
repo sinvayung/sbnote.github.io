@@ -1,3 +1,8 @@
+---
+title: Android SO逆向1-ARM介绍
+description: Android SO逆向1-ARM介绍
+---
+
 # Android SO逆向1-ARM介绍
 
 [3xpl0it](http://drops.wooyun.org/author/3xpl0it) · 2015/11/02 10:33

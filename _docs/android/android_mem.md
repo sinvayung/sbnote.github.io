@@ -1,3 +1,8 @@
+---
+title: Android内存调试工具总结
+description: Android内存调试工具总结
+---
+
 # Android内存调试工具总结
 
 ## 索引[¶](https://pengzhangdev.github.io/Android-memory-debug/?nsukey=51bo38V797T9bIZtnqae1pe8N7U6foNUBkZLeOFk4GZ%2BUoFEDmMOshrTrOwC%2Fy0HByIi8JSyOlkA3Vw3b86en5MvUkr3SZJGF7QJbiI9snbu75dlz%2BWeuAAwChVVVLNxoZwRGXnBKnKewo3tJvUmbwfrvDGckSrjS1g6YlXy0Xlf0BUycYDu31bufbBzxC3Y0TBwpMckSTWzEbvgztgebg%3D%3D#_1)

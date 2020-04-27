@@ -1,3 +1,8 @@
+---
+title: Android.mk文件语法详解
+description: Android.mk文件语法详解
+---
+
 # Android.mk文件语法详解
 
 ## Android.mk简介：

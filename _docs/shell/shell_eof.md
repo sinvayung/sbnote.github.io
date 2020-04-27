@@ -1,3 +1,8 @@
+---
+title: linux shell脚本EOF妙用
+description: linux shell脚本EOF妙用
+---
+
 # linux shell脚本EOF妙用
 
 2017年05月11日 20:36:25 [Zacy](https://me.csdn.net/zongshi1992) 阅读数：27184

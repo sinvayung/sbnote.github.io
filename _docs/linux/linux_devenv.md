@@ -1,3 +1,8 @@
+---
+title: 配置高效科学Linux开发环境
+description: 配置高效科学Linux开发环境
+---
+
 # 配置高效科学Linux开发环境
 
 ## 

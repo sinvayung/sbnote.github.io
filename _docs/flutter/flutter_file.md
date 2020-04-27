@@ -1,3 +1,8 @@
+---
+title: 读写文件
+description: 读写文件
+---
+
 # 读写文件
 
 本指南介绍如何使用[`PathProvider`](https://pub.dartlang.org/packages/path_provider) 插件和Dart的[`IO`](https://api.dartlang.org/stable/dart-io/dart-io-library.html)库在Flutter中读写文件 。

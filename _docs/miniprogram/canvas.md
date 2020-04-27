@@ -1,6 +1,6 @@
 ---
-title: Getting Started
-description: Getting started with Docsy Jekyll
+title: 1. 微信小程序API 绘图介绍（如何在Canvas上画图）
+description: 1. 微信小程序API 绘图介绍（如何在Canvas上画图）
 ---
 
 

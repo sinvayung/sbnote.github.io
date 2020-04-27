@@ -1,3 +1,8 @@
+---
+title: 【译】Android: 自定义View
+description: 【译】Android: 自定义View
+---
+
 # 【译】Android: 自定义View
 
 

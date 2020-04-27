@@ -1,3 +1,8 @@
+---
+title: Android NDK开发：JNI实战篇
+description: Android NDK开发：JNI实战篇
+---
+
 # Android NDK开发：JNI实战篇
 
 紧接上篇：[Android NDK开发：JNI基础篇 | cfanr](https://www.jianshu.com/p/ac00d59993aa)，这篇主要介绍 JNI Native 层调用Java 层的代码（涉及JNI 数据类型映射和描述符的使用）和如何动态注册 JNI。

@@ -1,3 +1,8 @@
+---
+title: 一步一步学ROP之Android ARM 32位篇
+description: 一步一步学ROP之Android ARM 32位篇
+---
+
 ## 一步一步学ROP之Android ARM 32位篇
 
 # 0x00 序
