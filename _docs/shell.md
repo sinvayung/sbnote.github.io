@@ -13,5 +13,5 @@ description: Shell
 - [Linux常用网络工具总结](shell/shell_net)
 - [5. netstat - 检验各端口的网络连接情况](shell/shell_shell)
 - [Linux shell 字符串操作详解](shell/shell_string)
-- [| Shell脚本语法                                                |                    |                                                              |](shell/shell_lang)
+- [Shell脚本语法                                                |                    |                                                              |](shell/shell_lang)
 - [Shell Sbnote](shell/shell_sbnote)

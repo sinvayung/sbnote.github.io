@@ -1,11 +1,10 @@
 ---
-title: | Shell脚本语法                                                |                    |                                                              |
-description: | Shell脚本语法                                                |                    |                                                              |
+title: Shell脚本语法                                                |                    |                                                              |
+description: Shell脚本语法                                                |                    |                                                              |
 ---
 
+Shell脚本语法                                                |                    |                                                              |
 
-
-| Shell脚本语法                                                |                    |                                                              |
 | ------------------------------------------------------------ | ------------------ | ------------------------------------------------------------ |
 | [上一页](http://docs.linuxtone.org/ebooks/C&CPP/c/ch31s04.html) | 第 31 章 Shell脚本 | [下一页](http://docs.linuxtone.org/ebooks/C&CPP/c/ch31s06.html) |
 

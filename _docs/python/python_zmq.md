@@ -1,7 +1,9 @@
 ---
-title: [ zeromq的三种简单模式（python实现）](https://segmentfault.com/a/1190000012010573)
-description: [ zeromq的三种简单模式（python实现）](https://segmentfault.com/a/1190000012010573)
+title: Python ZMQ
+description: Python ZMQ
 ---
+
+Python ZMQ
 
 # [ zeromq的三种简单模式（python实现）](https://segmentfault.com/a/1190000012010573)
 

@@ -1,7 +1,9 @@
 ---
-title: [Python自省（反射）指南](https://www.cnblogs.com/huxi/archive/2011/01/02/1924317.html)
-description: [Python自省（反射）指南](https://www.cnblogs.com/huxi/archive/2011/01/02/1924317.html)
+title: Python反射
+description: Python反射
 ---
+
+Python反射
 
 # [Python自省（反射）指南](https://www.cnblogs.com/huxi/archive/2011/01/02/1924317.html)
 

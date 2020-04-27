@@ -1,7 +1,9 @@
 ---
-title: **科普 | 你必须了解的漏洞利用缓解及对抗技术**
-description: **科普 | 你必须了解的漏洞利用缓解及对抗技术**
+title: Mitigation
+description: Mitigation
 ---
+
+Mitigation
 
 # **科普 | 你必须了解的漏洞利用缓解及对抗技术**
 

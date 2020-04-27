@@ -1,7 +1,9 @@
 ---
-title: gdb Debugging Full Example (Tutorial): ncurses
-description: gdb Debugging Full Example (Tutorial): ncurses
+title: GDB
+description: GDB
 ---
+
+GDB
 
 ## gdb Debugging Full Example (Tutorial): ncurses
 

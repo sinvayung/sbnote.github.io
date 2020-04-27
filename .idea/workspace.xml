@@ -2,31 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4883e43a-0b5d-467f-8a4e-c3bd3c9f679a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_docs/android.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/android.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_docs/ccpp.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/ccpp.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_docs/ccpp/tinyhttpd.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/ccpp/tinyhttpd.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_docs/dushu.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/dushu.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_docs/elasticsearch.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/elasticsearch.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_docs/ffmpeg.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/ffmpeg.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_docs/flutter.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/flutter.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_docs/git.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/git.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_docs/gradle.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/gradle.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_docs/hacker.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/hacker.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_docs/hive.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/hive.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_docs/java.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/java.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_docs/linux.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/linux.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_docs/math.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/math.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_docs/miniprogram.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/miniprogram.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_docs/numpy.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/numpy.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_docs/pandas.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/pandas.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_docs/hacker/hacker_mitigation.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/hacker/hacker_mitigation.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_docs/python.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/python.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_docs/python/python_reflect.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/python/python_reflect.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_docs/python/python_zmq.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/python/python_zmq.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_docs/re.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/re.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_docs/re/re_gdb.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/re/re_gdb.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_docs/re/re_ida_2.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/re/re_ida_2.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_docs/shell.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/shell.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_docs/tensorflow.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/tensorflow.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_docs/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/todo.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_docs/vue.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/vue.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/make_docs.py" beforeDir="false" afterPath="$PROJECT_DIR$/make_docs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_docs/shell/shell_lang.md" beforeDir="false" afterPath="$PROJECT_DIR$/_docs/shell/shell_lang.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,28 +22,7 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_docs/hive.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="95">
-                <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/make_docs.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="54" column="104" selection-start-line="54" selection-start-column="104" selection-end-line="54" selection-end-column="104" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_docs/miniprogram.md">
+        <entry file="file://$PROJECT_DIR$/_docs/flutter.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor />
@@ -68,7 +32,43 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_docs/pandas.md">
+        <entry file="file://$PROJECT_DIR$/_docs/hacker/hacker_mitigation.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="95">
+                <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_docs/python/python_zmq.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="95">
+                <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_docs/shell/shell_lang.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="95">
+                <caret line="5" selection-start-line="5" selection-end-line="5" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_docs/python/python_reflect.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="95">
@@ -80,31 +80,23 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_docs/re.md">
+        <entry file="file://$PROJECT_DIR$/_docs/re/re_gdb.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor />
+              <first_editor relative-caret-position="95">
+                <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+              </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_docs/tensorflow.md">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_docs/re/re_ida_2.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_docs/todo.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="152">
-                <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+              <first_editor relative-caret-position="95">
+                <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
               </first_editor>
               <second_editor />
             </state>
@@ -112,7 +104,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_docs/elasticsearch.md">
+        <entry file="file://$PROJECT_DIR$/_docs/gradle.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor />
@@ -122,13 +114,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_docs/ccpp.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="266">
-                <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-              </first_editor>
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/_data/toc.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="28" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -137,8 +126,8 @@
         <entry file="file://$PROJECT_DIR$/_docs/android.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-3">
-                <caret line="4" selection-start-line="4" selection-end-line="4" />
+              <first_editor relative-caret-position="114">
+                <caret line="6" selection-start-line="6" selection-end-line="6" />
               </first_editor>
               <second_editor />
             </state>
@@ -165,6 +154,12 @@
         <option value="$PROJECT_DIR$/_docs/ccpp/tinyhttpd.md" />
         <option value="$PROJECT_DIR$/_docs/hive.md" />
         <option value="$PROJECT_DIR$/make_docs.py" />
+        <option value="$PROJECT_DIR$/_docs/hacker/hacker_mitigation.md" />
+        <option value="$PROJECT_DIR$/_docs/python/python_zmq.md" />
+        <option value="$PROJECT_DIR$/_docs/shell/shell_lang.md" />
+        <option value="$PROJECT_DIR$/_docs/python/python_reflect.md" />
+        <option value="$PROJECT_DIR$/_docs/re/re_gdb.md" />
+        <option value="$PROJECT_DIR$/_docs/re/re_ida_2.md" />
       </list>
     </option>
   </component>
@@ -190,25 +185,24 @@
             <path>
               <item name="sbnote.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="sbnote.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="_data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sbnote.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sbnote.github.io" type="462c0819:PsiDirectoryNode" />
               <item name="_docs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sbnote.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="sbnote.github.io" type="462c0819:PsiDirectoryNode" />
               <item name="_docs" type="462c0819:PsiDirectoryNode" />
-              <item name="ccpp" type="462c0819:PsiDirectoryNode" />
+              <item name="hacker" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sbnote.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="sbnote.github.io" type="462c0819:PsiDirectoryNode" />
               <item name="_docs" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sbnote.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sbnote.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="_docs" type="462c0819:PsiDirectoryNode" />
-              <item name="shell" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -285,7 +279,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23767935" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23767935" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
@@ -294,7 +288,7 @@
       <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.42673796" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.42673796" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -305,16 +299,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_docs/re/re_gdb.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor>
-            <caret selection-end-column="3" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_docs/re/re_arm_2.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -457,40 +441,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_docs/shell/shell_grep.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_docs/flutter.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_docs/git.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="152">
-            <caret line="8" selection-start-line="8" selection-end-line="8" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_docs/gradle.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_docs/math.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -519,16 +469,6 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_docs/hacker.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="285">
-            <caret line="15" selection-start-line="15" selection-end-line="15" />
-          </first_editor>
           <second_editor />
         </state>
       </provider>
@@ -567,24 +507,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_docs/tensorflow.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_docs/todo.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="152">
-            <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_docs/elasticsearch.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -603,16 +525,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_docs/android.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-3">
-            <caret line="4" selection-start-line="4" selection-end-line="4" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_docs/hive.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -623,10 +535,167 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/_docs/todo.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="152">
+            <caret line="8" selection-start-line="8" selection-end-line="8" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_docs/tensorflow.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_docs/hacker.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="285">
+            <caret line="15" selection-start-line="15" selection-end-line="15" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_docs/shell/shell_grep.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_docs/shell/shell_eof.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-1561">
+            <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_docs/shell/shell_grepfind.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/make_docs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
+        <state relative-caret-position="1026">
           <caret line="54" column="104" selection-start-line="54" selection-start-column="104" selection-end-line="54" selection-end-column="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_docs/git.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="152">
+            <caret line="8" selection-start-line="8" selection-end-line="8" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_data/toc.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="28" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_docs/android.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="114">
+            <caret line="6" selection-start-line="6" selection-end-line="6" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_docs/gradle.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_docs/flutter.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_docs/hacker/hacker_mitigation.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="95">
+            <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_docs/python/python_zmq.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="95">
+            <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_docs/shell/shell_lang.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="95">
+            <caret line="5" selection-start-line="5" selection-end-line="5" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_docs/python/python_reflect.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="95">
+            <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_docs/re/re_gdb.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="95">
+            <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_docs/re/re_ida_2.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="95">
+            <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

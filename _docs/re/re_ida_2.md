@@ -1,7 +1,9 @@
 ---
-title: [IDA Pro 权威指南学习笔记(一) - 启动 IDA](https://www.cnblogs.com/sch01ar/p/9464873.html)
-description: [IDA Pro 权威指南学习笔记(一) - 启动 IDA](https://www.cnblogs.com/sch01ar/p/9464873.html)
+title: IDA Pro 权威指南学习笔记
+description: IDA Pro 权威指南学习笔记
 ---
+
+IDA Pro 权威指南学习笔记
 
 # [IDA Pro 权威指南学习笔记(一) - 启动 IDA](https://www.cnblogs.com/sch01ar/p/9464873.html)
 
