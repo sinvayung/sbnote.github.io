@@ -1,6 +1,6 @@
 import os
 
-def fix_title(dpath, fname):
+def fix_title(dpath, fname, alines=None):
 	fpath = os.path.join(dpath, fname)
 	print(fpath)
 	with open(fpath, 'r') as fp:
@@ -19,15 +19,21 @@ def fix_title(dpath, fname):
 				title = lines[idx].strip('# \n')
 				print('title: ' + title)
 				break
-		lines = [
+		header_lines = [
 					'---\n',
 					'title: ' + title + '\n',
 					'description: ' + title + '\n',
 					'---\n',
 					'\n'
-				] + lines
+				]
+		if alines is not None:
+			header_lines.append('# ' + title + '\n')
+			header_lines.append('\n')
+			lines = alines
+		lines = header_lines + lines
 	with open(fpath, 'w') as fp:
 		fp.writelines(lines)
+	return title
 
 
 
@@ -36,14 +42,19 @@ def main():
 	dpath = '_docs'
 	for fname in os.listdir(dpath):
 		if fname.endswith('.md'):
-			fix_title(dpath, fname)
+			# 子目录
 			subdir = os.path.join(dpath, os.path.splitext(fname)[0])
 			if not os.path.exists(subdir):
 				os.mkdir(subdir)
+
+			lines = []
 			for subfname in os.listdir(subdir):
 				if subfname.endswith('.md'):
 					print('subfname: ', subfname, 'xxx', subdir)
-					fix_title(subdir, subfname)
+					title = fix_title(subdir, subfname)
+					lines.append('- [%s](%s)\n' % (title, os.path.join(subdir, subfname)[len(dpath)+1:-3]))
+
+			fix_title(dpath, fname, lines)
 
 
 
