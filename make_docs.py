@@ -53,6 +53,7 @@ def main():
 					print('subfname: ', subfname, 'xxx', subdir)
 					title = fix_title(subdir, subfname)
 					lines.append('- [%s](%s)\n' % (title, os.path.join(subdir, subfname)[len(dpath)+1:-3]))
+			lines.sort()
 
 			fix_title(dpath, fname, lines)
 
