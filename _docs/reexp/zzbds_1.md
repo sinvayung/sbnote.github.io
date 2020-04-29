@@ -1,3 +1,8 @@
+---
+title: 7 Python Regular Expressions Examples – Re Match Search FindAll
+description: 7 Python Regular Expressions Examples – Re Match Search FindAll
+---
+
 # 7 Python Regular Expressions Examples – Re Match Search FindAll
 
 Regular expressions as a concept is not exclusive to Python at all.

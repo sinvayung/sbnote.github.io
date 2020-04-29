@@ -1,3 +1,10 @@
+---
+title: CMAKE
+description: CMAKE
+---
+
+CMAKE
+
 [Step 1](https://cmake.org/cmake-tutorial/#s1) | [Step 2](https://cmake.org/cmake-tutorial/#s2) | [Step 3](https://cmake.org/cmake-tutorial/#s3) | [Step 4](https://cmake.org/cmake-tutorial/#s4) | [Step 5](https://cmake.org/cmake-tutorial/#s5) | [Step 6](https://cmake.org/cmake-tutorial/#s6) | [Step 7](https://cmake.org/cmake-tutorial/#s7)
 
 Below is a step-by-step tutorial covering common build system use cases that CMake helps to address. Many of these topics have been introduced in [*Mastering CMake*](http://www.kitware.com/products/books/CMakeBook.html) as separate issues but seeing how they all work together in an example project can be very helpful. This tutorial can be found in the [Tests/Tutorial](https://gitlab.kitware.com/cmake/cmake/tree/master/Tests/Tutorial)directory of the CMake source code tree. Each step has its own subdirectory containing a complete copy of the tutorial for that step.

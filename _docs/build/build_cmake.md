@@ -1,3 +1,8 @@
+---
+title: JNI开发之CMake使用指南
+description: JNI开发之CMake使用指南
+---
+
 # JNI开发之CMake使用指南
 
 ![96](https://upload.jianshu.io/users/upload_avatars/3009951/4d30a00d55bf.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96)

@@ -1,3 +1,8 @@
+---
+title: Hive常用字符串函数
+description: Hive常用字符串函数
+---
+
 # Hive常用字符串函数
 
 

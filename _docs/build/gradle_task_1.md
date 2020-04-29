@@ -1,3 +1,8 @@
+---
+title: gradle task总结
+description: gradle task总结
+---
+
 # gradle task总结
 
 ![96](https://upload.jianshu.io/users/upload_avatars/2608779/4c1bd87d-f1f2-4d7a-9447-aa6a12f969a8.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96)

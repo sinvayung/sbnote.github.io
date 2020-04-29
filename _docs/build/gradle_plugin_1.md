@@ -1,3 +1,8 @@
+---
+title: Chapter 41. Writing Custom Plugins
+description: Chapter 41. Writing Custom Plugins
+---
+
 # Chapter 41. Writing Custom Plugins
 
 Table of Contents
