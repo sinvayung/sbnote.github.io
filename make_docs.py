@@ -1,6 +1,6 @@
 import os
 
-def fix_title(dpath, fname, alines=None):
+def _fix_title(dpath, fname, alines=None):
 	fpath = os.path.join(dpath, fname)
 	print(fpath)
 	with open(fpath, 'r') as fp:
@@ -35,10 +35,7 @@ def fix_title(dpath, fname, alines=None):
 		fp.writelines(lines)
 	return title
 
-
-
-
-def main():
+def fix_doc_title():
 	dpath = '_docs'
 	for fname in os.listdir(dpath):
 		if fname.endswith('.md'):
@@ -51,11 +48,11 @@ def main():
 			for subfname in os.listdir(subdir):
 				if subfname.endswith('.md'):
 					print('subfname: ', subfname, 'xxx', subdir)
-					title = fix_title(subdir, subfname)
+					title = _fix_title(subdir, subfname)
 					lines.append('- [%s](%s)\n' % (title, os.path.join(subdir, subfname)[len(dpath)+1:-3]))
 			lines.sort()
 
-			fix_title(dpath, fname, lines)
+			_fix_title(dpath, fname, lines)
 
 
 
@@ -131,7 +128,8 @@ def test():
 			fp.write(fname)
 
 
-
+def main():
+	fix_doc_title()
 
 if __name__ == '__main__':
 	main()

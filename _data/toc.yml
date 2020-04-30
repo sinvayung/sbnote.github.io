@@ -2,7 +2,7 @@
   url: docs
   links:
     - title: "终端技术"
-      url: "docs/getting-started"
+      url: "#"
       children:
         - title: Android
           url: "docs/android"
@@ -13,7 +13,7 @@
         - title: Vue
           url: "docs/vue"     
     - title: "系统技术"
-      url: "docs/getting-started"
+      url: "#"
       children:
         - title: Linux
           url: "docs/linux"
@@ -22,7 +22,7 @@
         - title: Customization
           url: "docs/getting-started#customization"          
     - title: "数据科学"
-      url: "docs/getting-started"
+      url: "#"
       children:
         - title: Numpy
           url: "docs/numpy"
@@ -31,7 +31,7 @@
         - title: Tensorflow
           url: "docs/tensorflow"      
     - title: "语言基础"
-      url: "docs/getting-started"
+      url: "#"
       children:
         - title: Java
           url: "docs/java"
@@ -42,7 +42,7 @@
         - title: Hive
           url: "docs/hive"     
     - title: "工具使用"
-      url: "docs/getting-started"
+      url: "#"
       children:
         - title: Git
           url: "docs/git"
