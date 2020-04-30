@@ -1,7 +1,7 @@
 - title: Documentation
   url: docs
   links:
-    - title: "终端技术"
+    - title: "终端 & 前端"
       url: "#"
       children:
         - title: Android
@@ -10,26 +10,40 @@
           url: "docs/flutter"
         - title: MiniProgram
           url: "docs/miniprogram"
-        - title: Vue
-          url: "docs/vue"     
-    - title: "系统技术"
+        - title: web
+          url: "docs/web"     
+    - title: "系统 & 网络"
       url: "#"
       children:
         - title: Linux
           url: "docs/linux"
         - title: Shell
           url: "docs/shell"
-        - title: Customization
-          url: "docs/getting-started#customization"          
-    - title: "数据科学"
+        - title: hacker
+          url: "docs/hacker"   
+        - title: 系统
+          url: "docs/network"       
+    - title: "AI & 数据科学 & 大数据"
       url: "#"
       children:
+        - title: 数学基础
+          url: "docs/math"
+        - title: 机器学习
+          url: "docs/ml"
+        - title: 深度学习
+          url: "docs/dl"
         - title: Numpy
           url: "docs/numpy"
         - title: Pandas
           url: "docs/pandas"
         - title: Tensorflow
           url: "docs/tensorflow"      
+        - title: 爬虫
+          url: "docs/crawler"
+        - title: Hive
+          url: "docs/hive" 
+        - title: ElasticSearch
+          url: "docs/elasticsearch"     
     - title: "语言基础"
       url: "#"
       children:
@@ -39,16 +53,32 @@
           url: "docs/python"
         - title: C/C++
           url: "docs/ccpp"
-        - title: Hive
-          url: "docs/hive"     
+        - title: TLPI专题
+          url: "docs/tlpi"
+        - title: 正则表达式
+          url: "docs/reexp"
+        - title: 编译
+          url: "docs/build" 
     - title: "工具使用"
       url: "#"
       children:
+        - title: 逆向分析
+          url: "docs/re"
         - title: Git
           url: "docs/git"
-        - title: ElasticSearch
-          url: "docs/elasticsearch"
         - title: ffmpeg
           url: "docs/ffmpeg"    
         - title: IDA
-          url: "docs/ida"                          
+          url: "docs/ida"     
+        - title: Markdown
+          url: "docs/markdown"    
+    - title: "其他"
+      url: "#"
+      children:
+        - title: 育儿
+          url: "docs/yuer"
+        - title: 记忆
+          url: "docs/memory" 
+        - title: 阅读
+          url: "docs/reading"
+
