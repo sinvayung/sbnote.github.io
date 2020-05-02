@@ -1,7 +1,11 @@
 ---
-title: FFMpeg版本相关信息
-description: FFMpeg版本相关信息
+title: ffmpeg笔记
+description: ffmpeg笔记
 ---
+
+ffmpeg笔记
+
+
 
 #### FFMpeg版本相关信息
 
