@@ -50,6 +50,9 @@ def fix_doc_title():
 					print('subfname: ', subfname, 'xxx', subdir)
 					title = _fix_title(subdir, subfname)
 					lines.append('- [%s](%s)\n' % (title, os.path.join(subdir, subfname)[len(dpath)+1:-3]))
+				elif subfname.endswith('.ipynb'):
+					title = subfname
+					lines.append('- [%s](%s)\n' % (title, os.path.join(subdir, subfname)))
 			lines.sort()
 
 			_fix_title(dpath, fname, lines)
