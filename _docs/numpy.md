@@ -5,4 +5,4 @@ description: numpy
 
 # numpy
 
-- [numpy_test.ipynb](_docs/numpy/numpy_test.ipynb)
+- [numpy_test.ipynb](numpy/numpy_test.ipynb)

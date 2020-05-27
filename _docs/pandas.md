@@ -5,4 +5,4 @@ description: Pandas
 
 # Pandas
 
-- [pandas_test.ipynb](_docs/pandas/pandas_test.ipynb)
+- [pandas_test.ipynb](pandas/pandas_test.ipynb)
