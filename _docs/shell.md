@@ -16,4 +16,5 @@ description: Shell
 - [grep && find命令用法](shell/shell_grepfind)
 - [grep命令](shell/shell_grep)
 - [linux shell脚本EOF妙用](shell/shell_eof)
+- [常用命令](shell/常用)
 - [解析二进制的Shell命令](shell/解析二进制的Shell命令)
