@@ -14,3 +14,4 @@ description: Python
 - [python读写文件，和设置文件的字符编码比如utf-8](python/python_codecs)
 - [协程与任务](python/python_asyncio)
 - [爬虫分类总结——Scrapy总结与实战](python/python_scrapy_1)
+- [编码转换测试](python/python_codecs_2)
